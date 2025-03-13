@@ -1,49 +1,46 @@
 package ccy.techchapterassignment.talent;
 
-import ccy.techchapterassignment.document.Document;
-import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 
 
-@Entity
+//@Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Talent {
 
-    @Id
+//    @Id
     private String uuid;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String profileText;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String country;
 
-    @Nullable
+//    @Nullable
     private String github;
 
-    @Nullable
+//    @Nullable
     private String linkedin;
 }

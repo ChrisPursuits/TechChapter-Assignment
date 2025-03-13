@@ -1,6 +1,7 @@
 package ccy.techchapterassignment.talent;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TalentRepository extends JpaRepository<Talent, String> {
+@Repository
+public class TalentRepository {
 }

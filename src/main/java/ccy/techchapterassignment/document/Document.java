@@ -1,25 +1,26 @@
 package ccy.techchapterassignment.document;
 
-import ccy.techchapterassignment.talent.Talent;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+//@Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Document {
 
-    @Id
+//    @Id
     private String uuid;
 
     private String name;
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "talent_uuid", referencedColumnName = "uuid", nullable = false)
-    private Talent talent;
+    private String talentUuid;
+//    @ManyToOne
+//    @JoinColumn(name = "talent_uuid", referencedColumnName = "uuid", nullable = false)
+//    private Talent talent;
 }

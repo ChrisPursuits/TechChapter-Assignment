@@ -15,7 +15,7 @@ import java.util.List;
 public class TalentController {
 
     private final TalentService talentService;
-    private final DocumentService documentService;
+//    private final DocumentService documentService;
 
     @GetMapping
     public ResponseEntity<List<Talent>> getAllTalents() {
@@ -31,13 +31,13 @@ public class TalentController {
 
     @GetMapping("/{id}/documents")
     public ResponseEntity<List<Document>> getDocumentsByTalent(@PathVariable String id) {
-        List<Document> documents = documentService.getAllDocumentsByTalentId(id);
+        List<Document> documents = talentService.getAllDocumentsByTalentId(id);
         return ResponseEntity.ok(documents);
     }
 
     @GetMapping("/{id}/documents/{documentId}")
     public ResponseEntity<Document> getDocumentByTalentAndDocumentId(@PathVariable String id, @PathVariable String documentId) {
-        Document document = documentService.getDocumentByTalentIdAndDocumentId(id, documentId);
+        Document document = talentService.getDocumentByTalentIdAndDocumentId(id, documentId);
         return ResponseEntity.ok(document);
     }
 }
