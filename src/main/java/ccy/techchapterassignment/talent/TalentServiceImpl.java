@@ -68,7 +68,7 @@ public class TalentServiceImpl implements TalentService {
         List<Document> filteredList = documentList.stream().filter(document -> document.getUuid().equals(documentId)).toList();
 
         if (filteredList.isEmpty()) {
-            throw new DocumentNotFound("No document found with id: " + documentId);
+            throw new DocumentNotFound("No document found with id: " + documentId + " for talent with id: " + talentId);
         }
 
         return filteredList.getFirst();
