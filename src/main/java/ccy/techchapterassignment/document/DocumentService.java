@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface DocumentService {
 
-    List<Document> getAllDocuments();
+    List<Document> getAllDocumentsByTalentId(String talentId);
 
-    Document getDocumentBy(String uuid);
+    Document getDocumentByTalentIdAndDocumentId(String talentId, String documentId);
 }

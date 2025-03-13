@@ -13,4 +13,10 @@ public class GlobalExceptionHandler {
         Error error = new Error(404, exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+
+    @ExceptionHandler(DocumentNotFound.class)
+    public ResponseEntity<Error> handleDocumentNotFound(DocumentNotFound exception) {
+        Error error = new Error(404, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
 }

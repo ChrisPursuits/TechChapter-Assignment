@@ -1,5 +1,7 @@
 package ccy.techchapterassignment.talent;
 
+import ccy.techchapterassignment.document.Document;
+import ccy.techchapterassignment.document.DocumentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import java.util.List;
 public class TalentController {
 
     private final TalentService talentService;
+    private final DocumentService documentService;
 
     @GetMapping
     public ResponseEntity<List<Talent>> getAllTalents() {
@@ -24,5 +27,17 @@ public class TalentController {
     public ResponseEntity<Talent> getTalentBy(@PathVariable String id) {
         Talent talent = talentService.getTalentBy(id);
         return ResponseEntity.ok(talent);
+    }
+
+    @GetMapping("/{id}/documents")
+    public ResponseEntity<List<Document>> getDocumentsByTalent(@PathVariable String id) {
+        List<Document> documents = documentService.getAllDocumentsByTalentId(id);
+        return ResponseEntity.ok(documents);
+    }
+
+    @GetMapping("/{id}/documents/{documentId}")
+    public ResponseEntity<Document> getDocumentByTalentAndDocumentId(@PathVariable String id, @PathVariable String documentId) {
+        Document document = documentService.getDocumentByTalentIdAndDocumentId(id, documentId);
+        return ResponseEntity.ok(document);
     }
 }

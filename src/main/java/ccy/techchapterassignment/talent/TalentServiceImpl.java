@@ -14,7 +14,12 @@ public class TalentServiceImpl implements TalentService {
 
     @Override
     public List<Talent> getAllTalents() {
-        return talentRepository.findAll();
+        List<Talent> talentList = talentRepository.findAll();
+
+        if (talentList.isEmpty()) {
+            throw new TalentNotFound("No talents found");
+        }
+        return talentList;
     }
 
     @Override
