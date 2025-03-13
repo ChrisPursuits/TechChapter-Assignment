@@ -1,7 +1,6 @@
 package ccy.techchapterassignment.talent;
 
 import ccy.techchapterassignment.document.Document;
-import ccy.techchapterassignment.document.DocumentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,6 @@ import java.util.List;
 public class TalentController {
 
     private final TalentService talentService;
-//    private final DocumentService documentService;
 
     @GetMapping
     public ResponseEntity<List<Talent>> getAllTalents() {
