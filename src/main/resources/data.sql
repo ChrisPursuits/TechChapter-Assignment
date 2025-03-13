@@ -1,0 +1,4 @@
+INSERT INTO talent (uuid, name, title, profile_text, email, phone, city, country, github, linkedin)
+VALUES
+    ('b8f78c8a-4dfe-4f99-b05b-21d8d2f8df60', 'John Doe', 'Software Engineer', 'A passionate software engineer with experience in Java and Python', 'john.doe@example.com', '123-456-7890', 'New York', 'USA', 'https://github.com/johndoe', 'https://www.linkedin.com/in/johndoe'),
+    ('ec35b89d-e15a-49f7-b7a5-5571782c8f98', 'Jane Smith', 'Data Scientist', 'An experienced data scientist with a focus on machine learning and AI', 'jane.smith@example.com', '987-654-3210', 'San Francisco', 'USA', NULL, 'https://www.linkedin.com/in/janesmith');
