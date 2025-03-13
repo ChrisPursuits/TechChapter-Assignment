@@ -1,5 +1,6 @@
 package ccy.techchapterassignment.talent;
 
+import ccy.techchapterassignment.exception.TalentNotFound;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,6 @@ public class TalentServiceImpl implements TalentService {
 
     @Override
     public Talent getTalentBy(String uuid) {
-        return talentRepository.findById(uuid).orElseThrow( () -> new RuntimeException("No such talent"));
+        return talentRepository.findById(uuid).orElseThrow( () -> new TalentNotFound("No talent found with id: " + uuid));
     }
 }

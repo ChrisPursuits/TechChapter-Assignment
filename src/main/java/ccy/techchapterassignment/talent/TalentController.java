@@ -20,9 +20,9 @@ public class TalentController {
         return ResponseEntity.ok(talentList);
     }
 
-    @GetMapping("/{uuid}")
-    public ResponseEntity<Talent> getTalentBy(@PathVariable String uuid) {
-        Talent talent = talentService.getTalentBy(uuid);
+    @GetMapping("/{id}")
+    public ResponseEntity<Talent> getTalentBy(@PathVariable String id) {
+        Talent talent = talentService.getTalentBy(id);
         return ResponseEntity.ok(talent);
     }
 }
