@@ -16,7 +16,7 @@ public class Talent {
     private String id;
     private String name;
     private String title;
-    private String profileText;
+    private String profile_text;
     private String email;
     private String phone;
     private String city;
