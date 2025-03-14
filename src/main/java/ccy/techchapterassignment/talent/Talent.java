@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Talent {
 
-    private String uuid;
+    private String id;
     private String name;
     private String title;
     private String profileText;

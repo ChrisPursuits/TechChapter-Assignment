@@ -1,6 +1,6 @@
 package ccy.techchapterassignment.talent;
 
-import ccy.techchapterassignment.document.Document;
+import ccy.techchapterassignment.document.DocumentDto;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface TalentService {
 
     Talent getTalentBy(String uuid);
 
-    List<Document> getAllDocumentsByTalentId(String talentId);
+    List<DocumentDto> getAllDocumentsByTalentId(String talentId);
 
-    Document getDocumentByTalentIdAndDocumentId(String talentId, String documentId);
+    DocumentDto getDocumentByTalentIdAndDocumentId(String talentId, String documentId);
 }

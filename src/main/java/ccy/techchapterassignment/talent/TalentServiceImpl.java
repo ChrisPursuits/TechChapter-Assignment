@@ -1,6 +1,7 @@
 package ccy.techchapterassignment.talent;
 
 import ccy.techchapterassignment.document.Document;
+import ccy.techchapterassignment.document.DocumentDto;
 import ccy.techchapterassignment.exception.DocumentNotFound;
 import ccy.techchapterassignment.exception.TalentNotFound;
 import lombok.RequiredArgsConstructor;
@@ -37,13 +38,13 @@ public class TalentServiceImpl implements TalentService {
 
         return talents
                 .stream()
-                .filter(t -> t.getUuid().equals(uuid))
+                .filter(talent -> talent.getId().equals(uuid))
                 .findFirst()
                 .orElseThrow( () -> new TalentNotFound("No talent found with id: " + uuid));
     }
 
     @Override
-    public List<Document> getAllDocumentsByTalentId(String talentId) {
+    public List<DocumentDto> getAllDocumentsByTalentId(String talentId) {
         if (flag) {
             initData();
         }
@@ -55,23 +56,31 @@ public class TalentServiceImpl implements TalentService {
             throw new DocumentNotFound("No documents found for talent with id: " + talentId);
         }
 
-        return johnDocs.isEmpty() ? janeDocs : johnDocs;
+        if (johnDocs.isEmpty()) {
+            return janeDocs.stream().map(document -> new DocumentDto(
+                    document.getId(),
+                    document.getName(),
+                    document.getContent())).toList();
+
+        } else {
+            return johnDocs.stream().map(document -> new DocumentDto(
+                    document.getId(),
+                    document.getName(),
+                    document.getContent())).toList();
+        }
     }
 
     @Override
-    public Document getDocumentByTalentIdAndDocumentId(String talentId, String documentId) {
+    public DocumentDto getDocumentByTalentIdAndDocumentId(String talentId, String documentId) {
         if (flag) {
             initData();
         }
 
-        List<Document> documentList = getAllDocumentsByTalentId(talentId);
-        List<Document> filteredList = documentList.stream().filter(document -> document.getUuid().equals(documentId)).toList();
-
-        if (filteredList.isEmpty()) {
-            throw new DocumentNotFound("No document found with id: " + documentId + " for talent with id: " + talentId);
-        }
-
-        return filteredList.getFirst();
+        return getAllDocumentsByTalentId(talentId)
+                .stream()
+                .filter(document -> document.id().equals(documentId))
+                .findFirst()
+                .orElseThrow(() -> new DocumentNotFound("No document found with id: " + documentId + " for talent with id: " + talentId));
     }
 
     private void initData() {
